@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- SECTION: Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FriendLine • Live Chat</title>
+
+    <!-- SECTION: Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- SECTION: Styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- SECTION: Sidebar / Friends List -->
+      <aside class="sidebar" aria-label="Friends list">
+        <header class="sidebar__header">
+          <div class="brand">
+            <span class="brand__dot"></span>
+            <span class="brand__name">FriendLine</span>
+          </div>
+          <div class="user-pill">
+            <div class="user-pill__avatar">Y</div>
+            <div class="user-pill__meta">
+              <span class="user-pill__name">You</span>
+              <span class="user-pill__status">Online</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="sidebar__search">
+          <input
+            type="search"
+            id="friendSearch"
+            class="input input--search"
+            placeholder="Search friends"
+            autocomplete="off"
+          />
+        </div>
+
+        <section class="sidebar__section">
+          <h2 class="sidebar__section-title">Friends</h2>
+          <ul class="friend-list" id="friendList">
+            <!-- Friends are injected by JavaScript for easier data control -->
+          </ul>
+        </section>
+      </aside>
+
+      <!-- SECTION: Main Chat Panel -->
+      <main class="chat" aria-label="Chat window">
+        <header class="chat__header">
+          <div class="chat__contact" id="activeFriendHeader">
+            <div class="avatar avatar--lg" data-avatar></div>
+            <div class="chat__contact-meta">
+              <div class="chat__contact-name" data-name>Select a friend</div>
+              <div class="chat__contact-status" data-status>
+                Pick someone to start chatting.
+              </div>
+            </div>
+          </div>
+          <div class="chat__actions">
+            <button class="icon-button" type="button" aria-label="Start call">
+              <span class="icon-button__circle"></span>
+            </button>
+            <button class="icon-button" type="button" aria-label="More options">
+              <span class="icon-button__dots"></span>
+            </button>
+          </div>
+        </header>
+
+        <section class="chat__body" id="chatMessages" aria-live="polite">
+          <div class="chat__empty-state" id="emptyState">
+            <h1 class="chat__empty-title">Start a private conversation</h1>
+            <p class="chat__empty-text">
+              Choose a friend from the list to open a 1‑to‑1 chat. Messages here
+              are just for the two of you.
+            </p>
+          </div>
+        </section>
+
+        <footer class="chat__composer" aria-label="Message composer">
+          <form id="messageForm" class="composer" autocomplete="off">
+            <button
+              type="button"
+              class="composer__attach"
+              aria-label="Attach file (visual only, no upload)"
+            >
+              <span class="paperclip"></span>
+            </button>
+            <input
+              type="text"
+              id="messageInput"
+              class="input input--message"
+              placeholder="Type a message to your friend..."
+              autocomplete="off"
+            />
+            <button type="submit" class="btn btn--primary" id="sendButton">
+              Send
+            </button>
+          </form>
+        </footer>
+      </main>
+    </div>
+
+    <!-- SECTION: Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
